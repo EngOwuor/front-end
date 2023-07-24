@@ -1,0 +1,21 @@
+runtime: python27
+service: front-end
+api_version: 1
+threadsafe: yes
+
+handlers:
+  - url: /
+    static_files: dist/front-end/index.html
+    upload: dist/demo-ui-app/index.html
+  - url: /
+    static_dir: dist/demo-ui-app
+
+skip_files:
+  - e2e/
+  - node_modules/
+  - src/
+  - ^(.*/)?\..*$
+  - ^(.*/)?.*\.json$
+  - ^(.*/)?.*\.md$
+  - ^(.*/)?.*\.yaml$
+  - ^LICENSE
