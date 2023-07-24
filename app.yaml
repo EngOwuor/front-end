@@ -6,9 +6,9 @@ threadsafe: yes
 handlers:
   - url: /
     static_files: dist/front-end/index.html
-    upload: dist/demo-ui-app/index.html
+    upload: dist/front-end/index.html
   - url: /
-    static_dir: dist/demo-ui-app
+    static_dir: dist/front-end
 
 skip_files:
   - e2e/
