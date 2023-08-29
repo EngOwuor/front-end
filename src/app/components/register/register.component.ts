@@ -13,6 +13,8 @@ export class RegisterComponent {
   lname:string=""
   email:string="";
   password:string = "";
+  fphone:string = "";
+  sphone:string = "";
 
   constructor(private router:Router,
               private userService:UserService,
@@ -36,11 +38,13 @@ export class RegisterComponent {
     const lname = this.lname
     const email = this.email;
     const password = this.password;
+    const fphone = this.fphone;
+    const sphone = this.sphone
     if(form.invalid){
       return
     }
     //form.reset();
-    this.userService.registerUser(fname,lname,email,password)
+    this.userService.registerUser(fname,lname,email,password,fphone,sphone)
   }
   
 

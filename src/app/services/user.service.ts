@@ -39,8 +39,8 @@ export class UserService {
   }
 
   // register user with fname,lname,email and password
-  registerUser(fname:string,lname:string,email:string,password:string): void{
-    this.http.post(`${this.serverUrl}/auth/register`, {fname,lname,email,password})
+  registerUser(fname:string,lname:string,email:string,password:string,fphone:string,sphone:string): void{
+    this.http.post(`${this.serverUrl}/auth/register`, {fname,lname,email,password,fphone,sphone})
    .subscribe(userData =>{
     // @ts-ignore
     if(userData.insertId !== null){

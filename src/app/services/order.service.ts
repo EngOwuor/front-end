@@ -14,7 +14,7 @@ export class OrderService {
   constructor(private http:HttpClient) { }
 
   getSingleOrder(orderId:number):Observable<ProductResponseModel[]>{
-    return this.http.get<ProductResponseModel[]>(this.serverUrl+'/orders/'+orderId)
+    return this.http.get<ProductResponseModel[]>(this.serverUrl+'/orders/details/'+orderId)
   }
 }
 

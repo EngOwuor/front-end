@@ -19,6 +19,9 @@ import { FormsModule } from '@angular/forms';
 import { LoginComponent } from './components/login/login.component';
 import { ProfileComponent } from './components/profile/profile.component';
 import { RegisterComponent } from './components/register/register.component';
+import { FilterPipe } from './shared/filter.pipe';
+import { CategoryComponent } from './components/category/category.component';
+import { NgxPaginationModule } from 'ngx-pagination';
 //import { RegisterComponent } from './components/register/register.component';
 
 
@@ -35,6 +38,8 @@ import { RegisterComponent } from './components/register/register.component';
     LoginComponent,
     ProfileComponent,
     RegisterComponent,
+    FilterPipe,
+    CategoryComponent,
   ],
   imports: [
     BrowserModule,
@@ -44,6 +49,7 @@ import { RegisterComponent } from './components/register/register.component';
     HttpClientModule,
     FormsModule,
     NgxSpinnerModule,
+    NgxPaginationModule,
     ToastrModule.forRoot()
   ],
   providers: [],

@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import {HttpClient} from '@angular/common/http'
 import { environment } from 'src/environments/environment';
-import { Observable } from 'rxjs';
+import { BehaviorSubject, Observable } from 'rxjs';
 import { ProductModelServer, ServerProdResponse, serverResponse } from '../models/product.model';
 
 
@@ -10,13 +10,18 @@ import { ProductModelServer, ServerProdResponse, serverResponse } from '../model
 })
 export class ProductService {
 
-  private serverUrl=environment.serverURL
+  private serverUrl=environment.serverURL;
+
+  public searchString = new BehaviorSubject<string>('');
+  public catProductspageNumber = new BehaviorSubject<number>(1);
+  public categoryProductsObj= new BehaviorSubject<serverResponse>({count:0,products:[]})
 
   constructor(private http:HttpClient) { }
 
-  getAllProducts(limitOfResults=10): Observable<serverResponse> {
+  getAllProducts(page=1,limitOfResults=10): Observable<serverResponse> {
     return this.http.get<serverResponse>(this.serverUrl + '/products', {
       params: {
+        page: page,
         limit: limitOfResults.toString()
       }
     });
@@ -28,8 +33,10 @@ export class ProductService {
   }
 
   // get products for one category
-  getProductsFromCategory(catName:string):Observable<ProductModelServer[]>{
-    return this.http.get<ProductModelServer[]>(this.serverUrl+'/products/category/'+catName);
+  getAllCategoryProducts(page:number,limit:number,catId:string):Observable<serverResponse>{
+    return this.http.post<serverResponse>(this.serverUrl+'/products/category',
+    {page:page,limit:limit,id:catId}
+    );
 
   }
 }

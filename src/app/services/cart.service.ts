@@ -266,7 +266,7 @@ export class CartService {
           userId: userId,
           products:this.cartDataClient.prodData
         }).subscribe(newOrderRes=>{
-          //console.log(newOrderRes)
+          console.log(newOrderRes)
           this.orderService.getSingleOrder(newOrderRes.order_id).subscribe(orderItems =>{
             if(newOrderRes.success){
               const navigationExtras:NavigationExtras = {

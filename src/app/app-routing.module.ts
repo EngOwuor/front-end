@@ -9,6 +9,7 @@ import { ProfileComponent } from "./components/profile/profile.component";
 import { LoginComponent } from "./components/login/login.component";
 import { profileGuard } from "./components/guard/profile.guard";
 import { RegisterComponent } from "./components/register/register.component";
+import { CategoryComponent } from "./components/category/category.component";
 
 const routes: Routes = [
     {path:'product/:id',component:ProductComponent},
@@ -17,6 +18,7 @@ const routes: Routes = [
     {path:'thankyou',component:ThankyouComponent},
     {path:'login',component: LoginComponent},
     {path:'profile',component:ProfileComponent,canActivate:[profileGuard]},
+    {path:'category',component:CategoryComponent},
     {path:'register',component:RegisterComponent},
     {path:'', component:HomeComponent },
 ];

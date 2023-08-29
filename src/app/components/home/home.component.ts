@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
+import { error } from 'jquery';
 import { serverResponse } from 'src/app/models/product.model';
 import { CartService } from 'src/app/services/cart.service';
 import { ProductService } from 'src/app/services/product.service';
@@ -11,7 +12,11 @@ import { ProductService } from 'src/app/services/product.service';
 })
 export class HomeComponent implements OnInit{
 
-  products:any[]=[]
+  products:any[]=[];
+  p: number = 1;
+  totalItems:number = 0;
+  collection: any[] = [];
+  searchTerm:string = '';
 
   constructor(private productService:ProductService, private router:Router, private cartService:CartService){}
 
@@ -20,11 +25,27 @@ export class HomeComponent implements OnInit{
     this.productService.getAllProducts().subscribe((prods:serverResponse)=>{
       
 
-      this.products = prods.products
+      this.collection = prods.products;
+      this.totalItems = prods.count
 
       //console.log(this.products)
+      //console.log(this.collection)
 
     })
+    
+    this.productService.searchString.subscribe(val=>{
+      //console.log(val)
+      this.searchTerm = val
+    })
+
+    this.productService.categoryProductsObj.subscribe({
+      next: res =>{
+        //console.log(res)
+        this.products = res.products
+      },
+      error: err => console.log(err)
+    })
+
     
   }
 
@@ -36,5 +57,30 @@ export class HomeComponent implements OnInit{
     this.cartService.addProductToCart(id);
   
   }
+
+  getCategoryProducts():void{
+    this.productService.categoryProductsObj.subscribe({
+      next: res =>{
+        console.log(res)
+      },
+      error: err => console.log(err)
+    })
+  }
+
+  pageChanged(event:any):void{
+    this.p = event;
+    this.productService.getAllProducts().subscribe((prods:serverResponse)=>{
+      
+
+      this.collection = prods.products
+
+      console.log(this.products)
+      console.log(this.collection)
+
+    })
+
+  }
+
+  
 
 }
