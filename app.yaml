@@ -1,4 +1,4 @@
-runtime: nodejs18
+runtime: python27
 service: front-end
 api_version: 1
 threadsafe: yes
