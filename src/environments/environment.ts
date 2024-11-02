@@ -4,7 +4,7 @@
 
 export const environment = {
   production: false,
-  serverURL: 'https://back-end-dot-fleet-flame-288817.uc.r.appspot.com/api'//'http://localhost:8080/api'
+  serverURL: 'https://admin-panel-dot-fleet-flame-288817.uc.r.appspot.com/api'//'http://localhost:8080/api'
 };
 
 /*

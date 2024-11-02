@@ -28,7 +28,7 @@ export class HeaderComponent implements OnInit{
   searchTerm:string = '';
   categories:Category[] = [];
   categoryId:number = 0;
-  categoryProductsObj: serverResponse = {
+  categoryProductsObj: serverResponse = { 
     count:0,
     products:[]
   }

@@ -54,7 +54,7 @@ export class UserService {
      //this.authState$.next(this.auth);
      //this.authData$.next(userData)
     })
-   }
+  }
 
   logOutUser(){
     this.auth = false;

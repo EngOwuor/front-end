@@ -1,6 +1,10 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule, platformBrowser } from '@angular/platform-browser';
 import { HttpClientModule } from '@angular/common/http';
+import { NgxSpinnerModule } from 'ngx-spinner';
+import { ToastrModule } from 'ngx-toastr';
+import { CommonModule } from '@angular/common';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 import { AppComponent } from './app.component';
 import { HeaderComponent } from './components/header/header.component';
@@ -11,18 +15,14 @@ import { HomeComponent } from './components/home/home.component';
 import { ProductComponent } from './components/product/product.component';
 import { ThankyouComponent } from './components/thankyou/thankyou.component';
 import { AppRoutingModule } from './app-routing.module';
-import { NgxSpinnerModule } from 'ngx-spinner';
-import { ToastrModule } from 'ngx-toastr';
-import { CommonModule } from '@angular/common';
-import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+
 import { FormsModule } from '@angular/forms';
 import { LoginComponent } from './components/login/login.component';
 import { ProfileComponent } from './components/profile/profile.component';
 import { RegisterComponent } from './components/register/register.component';
 import { FilterPipe } from './shared/filter.pipe';
 import { CategoryComponent } from './components/category/category.component';
-import { NgxPaginationModule } from 'ngx-pagination';
-//import { RegisterComponent } from './components/register/register.component';
+ //import { RegisterComponent } from './components/register/register.component';
 
 
 @NgModule({

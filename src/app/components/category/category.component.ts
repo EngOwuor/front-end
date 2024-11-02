@@ -45,7 +45,7 @@ export class CategoryComponent implements OnInit {
 
   addToCart(id:number){
     this.cartService.addProductToCart(id);
-  
+   
   }
 
   pageChanged(event:any):void{

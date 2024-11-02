@@ -8,8 +8,7 @@ import { environment } from 'src/environments/environment'
 @Injectable({
   providedIn: 'root'
 })
-export class CategoryService {
-
+export class CategoryService { 
   private serverUrl=environment.serverURL
 
   constructor(private httpClient: HttpClient) { 

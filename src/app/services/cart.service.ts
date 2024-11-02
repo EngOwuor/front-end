@@ -130,7 +130,8 @@ export class CartService {
             this.cartDataServer.data[index].numInCart = this.cartDataServer.data[index].numInCart <prod.product.quantity ? quantity:prod.product.quantity;
           }else{
             // quantity is not provided;
-           /* this.cartDataServer.data[index].numInCart = */this.cartDataServer.data[index].numInCart <prod.product.quantity ? this.cartDataServer.data[index].numInCart++:prod.product.quantity;
+           /* this.cartDataServer.data[index].numInCart = */
+           this.cartDataServer.data[index].numInCart <prod.product.quantity ? this.cartDataServer.data[index].numInCart++:prod.product.quantity;
           }
 
           // calculate total;
